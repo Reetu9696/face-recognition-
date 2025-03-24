@@ -1,0 +1,11 @@
+from ultralytics import YOLO
+
+# Load the YOLOv11 model
+model = YOLO("yolo11n.pt")
+
+# Run inference on the input video, filtering for people (class 0)
+results = model.predict(source="input_video.webm", stream=True, classes=0, save=True, save_txt=True)
+
+# Export results as MP4 (saved in the default runs folder)
+output_path = r"C:\Users\reetu\Desktop\grilll\people detection\video.mp4"
+print(f"Saved results to {output_path}")
